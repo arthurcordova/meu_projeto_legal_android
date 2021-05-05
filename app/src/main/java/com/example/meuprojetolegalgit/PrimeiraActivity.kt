@@ -5,10 +5,13 @@ import android.os.Bundle
 import com.example.meuprojetolegalgit.oo_animal.*
 import com.example.meuprojetolegalgit.oo_cor.Amarelo
 import com.example.meuprojetolegalgit.oo_cor.Azul
+import com.example.meuprojetolegalgit.oo_cor.Branco
 import com.example.meuprojetolegalgit.oo_cor.Cor
 import com.example.meuprojetolegalgit.oo_pessoa.Homem
 import com.example.meuprojetolegalgit.oo_pessoa.Mulher
 import com.example.meuprojetolegalgit.oo_pessoa.Pessoa
+import com.example.meuprojetolegalgit.oo_produto.Categoria
+import com.example.meuprojetolegalgit.oo_produto.Produto
 
 class PrimeiraActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +34,25 @@ class PrimeiraActivity : AppCompatActivity() {
         levarAoPetShop(gato)
         levarAoPetShop(cavalo)
 
-        val homem = Homem()
-        val mulher = Mulher()
-        meDigaQualOSexo(homem)
-        meDigaQualOSexo(mulher)
+
+        Amarelo("amarelo claro").apply {
+            val homem = Homem(cachorro, this)
+            val mulher = Mulher(passarinho, this)
+            pintar(this)
+        }
+
+        Homem(cachorro, corAmarelo).apply {
+            meDigaQualOSexo(this)
+            meDigaQualOSeuAnimalDeEstimacao(this)
+        }
+        Mulher(passarinho, corAmarelo).apply {
+            meDigaQualOSexo(this)
+            meDigaQualOSeuAnimalDeEstimacao(this)
+        }
+
+
+        val categoria = Categoria(1, "roupas")
+        val produto = Produto("Camiseta", categoria)
 
     }
 
@@ -50,5 +68,10 @@ class PrimeiraActivity : AppCompatActivity() {
     fun meDigaQualOSexo(pessoa: Pessoa) {
         println("O sexo é ${pessoa.sexo} ")
     }
+
+    fun meDigaQualOSeuAnimalDeEstimacao(pessoa: Pessoa) {
+        println("Seu animal é ${pessoa.animal.nome} ")
+    }
+
 
 }

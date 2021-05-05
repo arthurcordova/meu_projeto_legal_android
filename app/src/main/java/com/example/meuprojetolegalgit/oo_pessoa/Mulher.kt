@@ -1,4 +1,7 @@
 package com.example.meuprojetolegalgit.oo_pessoa
 
-class Mulher: Pessoa("feminino") {
+import com.example.meuprojetolegalgit.oo_animal.Animal
+import com.example.meuprojetolegalgit.oo_cor.Cor
+
+class Mulher(animal: Animal, cor: Cor): Pessoa("feminino", animal, cor) {
 }
