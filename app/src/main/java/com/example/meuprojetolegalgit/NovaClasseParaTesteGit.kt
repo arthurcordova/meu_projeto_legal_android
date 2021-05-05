@@ -1,4 +1,4 @@
 package com.example.meuprojetolegalgit
 
-class NovaClasseParaTesteGit {
+class NovaClasseParaTesteGit(val talles: Int) {
 }
